@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TurnUpCRUDFunctiontest.Utils;
 
 namespace TurnUpCRUDFunctiontest.Pages
 {
-    internal class EmployeePage
+    internal class EmployeePage : CommonDriver
     {
-        public void createEmployeetest(IWebDriver driver)
+        public void createEmployeetest()
         {
 
             // Actions
@@ -38,7 +39,7 @@ namespace TurnUpCRUDFunctiontest.Pages
             Assert.That(Name == "MayUser", "Code value does not match");
             Assert.That(UserName == "May2024User", "typeCode value does not match");
         }
-        public void editEmployeetest(IWebDriver driver)
+        public void editEmployeetest()
         {
             driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[4]/a[4]/span")).Click();
             driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[6]/td[3]/a[1]")).Click();
@@ -60,7 +61,7 @@ namespace TurnUpCRUDFunctiontest.Pages
             Assert.That(Name == "MayUserData", "Code value does not match");
             Assert.That(UserName == "May2024UserData", "typeCode value does not match");
         }
-        public void deleteEmployeetest(IWebDriver driver)
+        public void deleteEmployeetest()
         {
             driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[4]/a[4]/span")).Click();
             driver.FindElement(By.XPath("//*[@id=\"usersGrid\"]/div[3]/table/tbody/tr[6]/td[3]/a[2]")).Click();

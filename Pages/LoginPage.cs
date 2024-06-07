@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TurnUpCRUDFunctiontest.Utils;
 
 namespace TurnUpCRUDFunctiontest.Pages
 {
-    internal class LoginPage
+    internal class LoginPage : CommonDriver
     {    
         
-        public void login(IWebDriver driver)
+        public void login()
         {
             driver.FindElement(By.Id("UserName")).SendKeys("hari");
             driver.FindElement(By.Name("Password")).SendKeys("123123");

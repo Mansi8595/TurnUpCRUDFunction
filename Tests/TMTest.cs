@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TurnUpCRUDFunctiontest.Pages;
+using TurnUpCRUDFunctiontest.Utils;
 
 namespace TurnUpCRUDFunctiontest.Tests
 {
-    internal class TMTest
+    internal class TMTest : CommonDriver
     {
-        IWebDriver driver;
+        
         WebDriverWait wait;
         LoginPage LoginPageObj = new LoginPage();
         Homepage HomepageObj = new Homepage();
@@ -27,8 +28,8 @@ namespace TurnUpCRUDFunctiontest.Tests
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
-            LoginPageObj.login(driver);
-            HomepageObj.homepage(driver);
+            LoginPageObj.login();
+            HomepageObj.homepage();
         }
            
               
@@ -42,21 +43,21 @@ namespace TurnUpCRUDFunctiontest.Tests
         [Test, Order(1)]
         public void createTMRecordTest()
 
-        {
-            TMPageObj.createTMRecordTest(driver);
+        { 
+            TMPageObj.createTMRecordTest();
             
         
         }
         [Test, Order(2)]
         public void editTMRecordTest()
         {
-             TMPageObj.editTMRecordTest(driver);
+             TMPageObj.editTMRecordTest();
         }
         
         [Test, Order(3)]
         public void deleteTMRecordTest()
         {
-            TMPageObj.deleteTMRecordTest(driver);
+            TMPageObj.deleteTMRecordTest();
 
         }
     }

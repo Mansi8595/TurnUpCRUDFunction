@@ -10,12 +10,12 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System.Security.Cryptography.X509Certificates;
 using TurnUpCRUDFunctiontest.Pages;
+using TurnUpCRUDFunctiontest.Utils;
 
 namespace TurnUpCRUDFunctiontest.Test
 {
-    internal class EmployeeTest
-    {
-        IWebDriver driver;
+    internal class EmployeeTest : CommonDriver
+    {   
         WebDriverWait wait;
         LoginPage LoginPageObj = new LoginPage();
         Homepage HomepageObj = new Homepage();
@@ -28,7 +28,7 @@ namespace TurnUpCRUDFunctiontest.Test
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
-            LoginPageObj.login(driver);
+            LoginPageObj.login();
             driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a")).Click();
             driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a")).Click();
 
@@ -43,20 +43,20 @@ namespace TurnUpCRUDFunctiontest.Test
         public void createEmployeetest()
         {
 
-            EmployeePageObj.createEmployeetest(driver);
+            EmployeePageObj.createEmployeetest();
         }
 
         [Test, Order(2)]
         public void editEmployeetest()
         {
-            EmployeePageObj.editEmployeetest(driver);
+            EmployeePageObj.editEmployeetest();
             
         }
 
         [Test, Order(3)]
         public void deleteEmployeetest()
         {
-            EmployeePageObj.deleteEmployeetest(driver);
+            EmployeePageObj.deleteEmployeetest();
 
         }
 

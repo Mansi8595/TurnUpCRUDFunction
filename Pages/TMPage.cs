@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TurnUpCRUDFunctiontest.Utils;
 
 namespace TurnUpCRUDFunctiontest.Pages
 {
-    internal class TMPage
+    internal class TMPage : CommonDriver
     {
-        public void createTMRecordTest(IWebDriver driver)
+        public void createTMRecordTest()
 
         {
 
@@ -41,9 +42,8 @@ namespace TurnUpCRUDFunctiontest.Pages
             Assert.That(price.Contains("101"), "price value does not match");
 
         }
-        public void editTMRecordTest(IWebDriver driver)
+        public void editTMRecordTest()
         {
-
             driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span")).Click();
             driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[2]/td[5]/a[1]")).Click();
             driver.FindElement(By.Id("Code")).SendKeys("24");
@@ -68,7 +68,7 @@ namespace TurnUpCRUDFunctiontest.Pages
 
         }
 
-        public void deleteTMRecordTest(IWebDriver driver)
+        public void deleteTMRecordTest()
         {
 
             driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span")).Click();
